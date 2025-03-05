@@ -3,7 +3,6 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-# Dictionary mapping dice rolls to image URLs
 DICE_IMAGES = {
     1: "https://cdn-icons-png.flaticon.com/512/8336/8336943.png",
     2: "https://cdn-icons-png.flaticon.com/512/8336/8336956.png",
