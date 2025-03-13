@@ -1,15 +1,16 @@
 import random
 import discord
+import os
 from discord import app_commands
 from discord.ext import commands
 
 DICE_IMAGES = {
-    1: "https://cdn-icons-png.flaticon.com/512/8336/8336943.png",
-    2: "https://cdn-icons-png.flaticon.com/512/8336/8336956.png",
-    3: "https://cdn-icons-png.flaticon.com/512/8336/8336955.png",
-    4: "https://cdn-icons-png.flaticon.com/512/8336/8336933.png",
-    5: "https://cdn-icons-png.flaticon.com/512/8336/8336931.png",
-    6: "https://cdn-icons-png.flaticon.com/512/8336/8336948.png",
+    1: r"img\dice\1.png",
+    2: r"img\dice\2.png",
+    3: r"img\dice\3.png",
+    4: r"img\dice\4.png",
+    5: r"img\dice\5.png",
+    6: r"img\dice\6.png",
 }
 
 async def setup(bot: commands.Bot):
@@ -17,7 +18,12 @@ async def setup(bot: commands.Bot):
     async def dice_command(interaction: discord.Interaction):
         roll = random.randint(1, 6)
         
-        embed = discord.Embed(title=f"You rolled a **{roll}**!", color=discord.Color.red())
-        embed.set_image(url=DICE_IMAGES[roll])
+        # Get absolute path to the image
+        image_path = os.path.join(os.path.dirname(__file__), '..', DICE_IMAGES[roll])
         
-        await interaction.response.send_message(embed=embed)
+        embed = discord.Embed(title=f"You rolled a **{roll}**!", color=discord.Color.blue())
+        # Use file upload for local image
+        file = discord.File(image_path, filename=f"dice-{roll}.png")
+        embed.set_image(url=f"attachment://dice-{roll}.png")
+        
+        await interaction.response.send_message(embed=embed, file=file)
