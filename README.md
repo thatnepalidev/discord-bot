@@ -6,7 +6,8 @@ This is a simple yet functional Discord bot designed to add some fun and utility
 ## Features  
 - 🔢 **/random [min] [max]** – Generates a random number between the given minimum and maximum values. 
 - 🎲 **/dice** – Rolls a six-sided dice and returns a random face.  
-- 📝 **/quotes** – Fetches and displays a random motivational quote.  
+- 📝 **/quotes** – Fetches and displays a random motivational quote.
+- 🌍 **/translate [text] [language]** - Translates text to selected language.
 
 ## Installation  
 
@@ -33,6 +34,7 @@ Once the bot is running and added to your Discord server, use the following slas
 - `/random [min] [max]` – Get a random number within the specified range.
 - `/dice` – Rolls a dice and returns a number between 1-6.
 - `/quotes` – Returns a random motivational quote.
+- `/translate [text] [language]` - Translates a text to different language.
 
 ## Contributing
 Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
